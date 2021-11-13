@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 35c00edab1401de49b909e7b8243f78f
+  m_SerializeEntries:
+  - m_GUID: d0ff957b2789d7043a30fee5c00e444e
+    m_Address: Assets/CarroBlancoP.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 2800000, guid: d0ff957b2789d7043a30fee5c00e444e, type: 3}
+    m_TargetAsset: {fileID: 2800000, guid: d0ff957b2789d7043a30fee5c00e444e, type: 3}
+  - m_GUID: 7bf4a98a29da9d14eac33e3d181f9862
+    m_Address: Assets/CarroBlancoD.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 4e4044775f3a8bc46b92a444a772f340
+    m_Address: Assets/CarroCafeD.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 2800000, guid: 4e4044775f3a8bc46b92a444a772f340, type: 3}
+    m_TargetAsset: {fileID: 2800000, guid: 4e4044775f3a8bc46b92a444a772f340, type: 3}
+  - m_GUID: 342670b5e902f2849aa6f382bac5de73
+    m_Address: Assets/CarroCafeP.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: d3c45288c5315c34e9b6544739c2d492, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 643997303263283449566517b590ed3d, type: 2}
+    - {fileID: 11400000, guid: e5b791d9c38d43a458013d0bc07ac63f, type: 2}
