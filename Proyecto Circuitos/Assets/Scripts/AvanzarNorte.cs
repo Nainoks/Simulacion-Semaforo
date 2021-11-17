@@ -34,22 +34,18 @@ public class AvanzarNorte : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("ay te pegastes");
         if (collision.gameObject.name == "Bloqueo") // or if(gameObject.CompareTag("YourWallTag"))
         {
             velocidadAnterior = velocidad;
             velocidad = 0;
-            Debug.Log("ay te pegastes pero duro");
         }
    
     }
     void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("ay te pegastes");
         if (collision.gameObject.name == "Bloqueo") // or if(gameObject.CompareTag("YourWallTag"))
         {
             velocidad = velocidadAnterior;
-            Debug.Log("ay te pegastes pero duro");
         }
 
     }

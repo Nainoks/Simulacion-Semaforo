@@ -2,6 +2,11 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - AvanzarNorte
+    - Contar
+    - Detener
+    - Iniciar
+    - Preventivas
+    - Semaforo
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
@@ -58,9 +63,12 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.UI.DebugUIHandlerVector4
     - UnityEngine.Rendering.UI.UIFoldout
     Unity.RenderPipelines.Universal.Editor.dll:
+    - UnityEditor.Experimental.Rendering.Universal.Path2D.ScriptablePathInspector
     - UnityEditor.Rendering.Universal.UniversalProjectSettings
     Unity.RenderPipelines.Universal.Runtime.dll:
+    - UnityEngine.Experimental.Rendering.Universal.Light2D
     - UnityEngine.Experimental.Rendering.Universal.Renderer2DData
+    - UnityEngine.Experimental.Rendering.Universal.ShadowCaster2D
     - UnityEngine.Rendering.Universal.PostProcessData
     - UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset
     Unity.Rider.Editor.dll:
@@ -76,6 +84,8 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
     UnityEngine.UI.dll:
+    - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.ContentSizeFitter
@@ -90,7 +100,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Toggle
     - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
-    Assets/Scenes/SampleScene.unity:
+    Assets/FinalAhoraSiFinalTeLoJuroPorVieguitoMaradona.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -100,6 +110,8 @@ ScriptsOnlyBuild:
     - Class: 21
       Script: {instanceID: 0}
     - Class: 28
+      Script: {instanceID: 0}
+    - Class: 43
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
@@ -128,11 +140,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1772}
     - Class: 114
+      Script: {instanceID: 2040}
+    - Class: 114
+      Script: {instanceID: 2158}
+    - Class: 114
       Script: {instanceID: 2228}
     - Class: 114
       Script: {instanceID: 2416}
     - Class: 114
       Script: {instanceID: 2516}
+    - Class: 114
+      Script: {instanceID: 2768}
+    - Class: 114
+      Script: {instanceID: 2974}
+    - Class: 114
+      Script: {instanceID: 3176}
     - Class: 114
       Script: {instanceID: 3272}
     - Class: 114
@@ -158,9 +180,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4690}
     - Class: 114
+      Script: {instanceID: 5410}
+    - Class: 114
       Script: {instanceID: 5466}
     - Class: 114
       Script: {instanceID: 5484}
+    - Class: 114
+      Script: {instanceID: 5506}
     - Class: 114
       Script: {instanceID: 5544}
     - Class: 114
@@ -188,6 +214,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6658}
     - Class: 114
+      Script: {instanceID: 6726}
+    - Class: 114
       Script: {instanceID: 6734}
     - Class: 114
       Script: {instanceID: 6842}
@@ -197,6 +225,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 7122}
     - Class: 114
       Script: {instanceID: 7182}
+    - Class: 114
+      Script: {instanceID: 7342}
     - Class: 114
       Script: {instanceID: 7858}
     - Class: 114
@@ -1294,7 +1324,7 @@ ScriptsOnlyBuild:
     className: PaniniProjection
   - hash:
       serializedVersion: 2
-      Hash: 9d55afbe6537380ed98759123c54493a
+      Hash: 5f44e2a703b175fcc3713e6ecbaae69e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AvanzarNorte
@@ -1408,5 +1438,5 @@ ScriptsOnlyBuild:
     className: DiagnosticEventCollector
   platform: 13
   scenePathNames:
-  - Assets/Scenes/SampleScene.unity
+  - Assets/FinalAhoraSiFinalTeLoJuroPorVieguitoMaradona.unity
   playerPath: C:/Users/adolf/Desktop/Semaforo/Semaforo.apk

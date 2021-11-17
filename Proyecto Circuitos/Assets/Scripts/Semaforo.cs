@@ -34,11 +34,11 @@ public class Semaforo : MonoBehaviour
             sAmarillo.color = ctrContador.activoAmarillo;
             sRojo.color = ctrContador.activoRojo;
 
-            if (ctrContador.Primera || ctrContador.Segunda)
+            if (ctrContador.PrimeraFase || ctrContador.SegundaFase)
             {
                 Parada.enabled = false;
             }
-            else if (ctrContador.Tercera || ctrContador.Cuarta || ctrContador.Detener || ctrContador.Preventivas || ctrContador.Iniciando)
+            else if (ctrContador.TerceraFase || ctrContador.CuartaFase || ctrContador.Detener || ctrContador.Preventivas || ctrContador.Iniciando)
             { Parada.enabled = true; }
 
         }

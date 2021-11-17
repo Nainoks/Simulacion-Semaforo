@@ -5,226 +5,184 @@ using UnityEngine.UI;
 
 public class Contar : MonoBehaviour
 {
-    public Text Contador;
-    float xp = 0.0f;
-    public bool Primera = false;
-    public bool Segunda = false;
-    public bool Tercera = false;
-    public bool Cuarta = false;
+    public Text txtContador;
+    float segundos = 0.0f;
+    public bool PrimeraFase = false;
+    public bool SegundaFase = false;
+    public bool TerceraFase = false;
+    public bool CuartaFase = false;
     public bool Preventivas = false;
     public bool Iniciando = false;
     public bool Detener = false;
-    public Color colorDigito = Color.green;
     public Color activoRojo = Color.black;
     public Color activoAmarillo = Color.black;
     public Color activoVerde = Color.black;
     public bool siguiente = false;
-    public float p;
-    public float f;
     // Start is called before the first frame update
     void Start()
     {
-
-        Contador = GetComponent<Text>();
-        Contador.color = Color.red;
-        colorDigito = Color.red;
+        txtContador = GetComponent<Text>();
+        txtContador.color = Color.red;
         activoRojo = Color.red;
     }
 
+    void EncenderVerde() {
+        txtContador.color = Color.green;
+        activoRojo = Color.black;
+        activoAmarillo = Color.black;
+        activoVerde = Color.green;
+    }
+
+    void EncenderAmarillo()
+    {
+        txtContador.color = Color.yellow;
+        activoRojo = Color.black;
+        activoAmarillo = Color.yellow;
+        activoVerde = Color.black;
+    }
+    void EncenderRojo()
+    {
+        txtContador.color = Color.red;
+        activoRojo = Color.red;
+        activoAmarillo = Color.black;
+        activoVerde = Color.black;
+    }
+    void ApagarSemaforo() {
+        txtContador.color = Color.black;
+        activoRojo = Color.black;
+        activoAmarillo = Color.black;
+        activoVerde = Color.black;
+    }
 
     // Update is called once per frame
     void Update()
     {
-
-
-        if (Primera)
+        if (PrimeraFase)
         {
-            Iniciando = false;
-            xp += (Time.deltaTime / p) + f;
+            segundos += Time.deltaTime;
+            if (segundos <= 10.5f)//Enciende el semaforo durante los primeros 10 segundos y medio
+            {
+                EncenderVerde();            
+            }
+            else if (segundos >= 10.5f && segundos < 11f)//Apaga el semaforo por medio segundo
+            {
+                ApagarSemaforo();
+            } 
+            else if (segundos >= 11f)//Cambio a la tercera fase
+            {
+                segundos = 1;
+                PrimeraFase = false;
+                SegundaFase = true;
+            }
 
-            if (xp >= 11f)
-            {
-                colorDigito = Color.green;
-                Contador.color = Color.green;
-                activoRojo = Color.black;
-                activoAmarillo = Color.black;
-                activoVerde = Color.green;
-                xp = 1;
-                Primera = false;
-                Segunda = true;
-            }
-            else if (xp > 10.5f)
-            {
-                colorDigito = Color.black;
-                Contador.color = Color.black;
-                activoRojo = Color.black;
-                activoAmarillo = Color.black;
-                activoVerde = Color.black;
-            }
         }
-        if (Segunda)
+        if (SegundaFase)
         {
-            xp += (Time.deltaTime / p) + f;
-            if ((Mathf.Floor(xp) + 1) - xp >= 0.5f)
+            segundos += Time.deltaTime;
+
+            //Enciende el verde del semaforo durante los primeros 0.5 segundos de un segundo
+            if ((Mathf.Floor(segundos) + 1) - segundos >= 0.5f)
             {
-                Contador.color = Color.green;
-                colorDigito = Color.green;
-                activoRojo = Color.black;
-                activoAmarillo = Color.black;
-                activoVerde = Color.green;
-            }
+                EncenderVerde();
+            }//Apaga el semaforo durante los ultimos 0.5 segundos de un segundo
             else
             {
-                colorDigito = Color.black;
-                Contador.color = Color.black;
-                activoRojo = Color.black;
-                activoAmarillo = Color.black;
-                activoVerde = Color.black;
+                ApagarSemaforo();
             }
-            if (Mathf.Floor(xp) == 4f)
+            //Cambio a la tercera fase
+            if (segundos >= 4f)
             {
-                xp = 1;
-                Segunda = false;
-                Tercera = true;
-                Contador.color = Color.yellow;
-                colorDigito = Color.yellow;
-                activoRojo = Color.black;
-                activoAmarillo = Color.yellow;
-                activoVerde = Color.black;
+                segundos = 1;
+                SegundaFase = false;
+                TerceraFase = true;
             }
-            else if (xp > 3.5f)
-            {
-                colorDigito = Color.black;
-                Contador.color = Color.black;
-                activoRojo = Color.black;
-                activoAmarillo = Color.black;
-                activoVerde = Color.black;
-            }
+
         }
-        if (Tercera)
+        if (TerceraFase)
         {
-            xp += (Time.deltaTime / p) + f;
-
-            if (Mathf.Floor(xp) == 4)
+             segundos += Time.deltaTime;
+            if (segundos <= 3.5f)//Enciende el semaforo durante los primeros 10 segundos y medio
             {
-                xp = 1;
-                Tercera = false;
-                Cuarta = true;
-                Contador.color = Color.red;
-                colorDigito = Color.red;
-                activoRojo = Color.red;
-                activoAmarillo = Color.black;
-                activoVerde = Color.black;
-
+                EncenderAmarillo();
+            }
+            else if (segundos > 3.5f && segundos < 4)//Apaga el semaforo por medio segundo
+            {
+                ApagarSemaforo();
+            }
+            else if (segundos >= 4)//Cambio a la cuarta fase
+            {
+                segundos = 1;
+                TerceraFase = false;
+                CuartaFase = true;
+                //Activa la bandera de siguiente, la cual notificara al controlador principal la necesidad de un cambio
                 siguiente = true;
-
-            }
-            else if (xp > 3.5f)
-            {
-                colorDigito = Color.black;
-                Contador.color = Color.black;
-                activoRojo = Color.black;
-                activoAmarillo = Color.black;
-                activoVerde = Color.black;
             }
         }
-        if (Cuarta)
+        if (CuartaFase)
         {
-
-
-            xp += (Time.deltaTime / p) + f;
-
-
-            if (Mathf.Floor(xp) == 3)
+            segundos += Time.deltaTime;
+            if (segundos < 2.5f)//Enciende el semaforo durante los primeros 2 segundos y medio
             {
- 
-                xp = 1;
-                Cuarta = false;
-                Primera = true;
-                Contador.color = Color.green;
-                colorDigito = Color.green;
-                activoRojo = Color.black;
-                activoAmarillo = Color.black;
-                activoVerde = Color.green;
-
+                EncenderRojo();
             }
-            else if (xp > 3.5f)
+            else if (segundos >= 2.5 && segundos < 3f)//Apaga el semaforo por medio segundo
+            { 
+                ApagarSemaforo();
+            }
+            else if (segundos >= 3f)//Cambio a la primera fase
             {
-                colorDigito = Color.black;
-                Contador.color = Color.black;
-                activoRojo = Color.black;
-                activoAmarillo = Color.black;
-                activoVerde = Color.black;
-
+                segundos = 1;
+                CuartaFase = false;
+                PrimeraFase = true;
+                EncenderVerde();
             }
-
-
         }
         if (Preventivas)
         {
-            Primera = false;
-            Segunda = false;
-            Tercera = false;
-            Cuarta = false;
-            xp += (Time.deltaTime / p) + f;
-            if (xp > 1)
+            PrimeraFase = false;
+            SegundaFase = false;
+            TerceraFase = false;
+            CuartaFase = false;
+            segundos += Time.deltaTime;
+            if (segundos > 1) //Reinicia el contador a 0 
             {
-                xp = 0;
+                segundos = 0;
             }
-            if ((Mathf.Floor(xp) + 1) - xp >= 0.5f)
+            //Enciende el amarillo del semaforo durante los primeros 0.5 segundos de un segundo
+            if ((Mathf.Floor(segundos) + 1) - segundos <= 0.5f)
             {
-
-                Contador.color = Color.yellow;
-                colorDigito = Color.yellow;
-                activoRojo = Color.black;
-                activoAmarillo = Color.yellow;
-                activoVerde = Color.black;
+                EncenderAmarillo();
             }
-            else
+            else //Apaga el semaforo durante los ultimos 0.5 segundos de un segundo
             {
-                colorDigito = Color.black;
-                Contador.color = Color.black;
-                activoRojo = Color.black;
-                activoAmarillo = Color.black;
-                activoVerde = Color.black;
+                ApagarSemaforo();
             }
-
         }
-
-
         if (Detener)
         {
-            Contador.color = Color.red;
-            colorDigito = Color.red;
-            activoRojo = Color.red;
-            activoAmarillo = Color.black;
-            activoVerde = Color.black;
-            Primera = false;
-            Segunda = false;
-            Tercera = false;
-            Cuarta = false;
+            EncenderRojo();
+            PrimeraFase = false;
+            SegundaFase = false;
+            TerceraFase = false;
+            CuartaFase = false;
             Preventivas = false;
             Iniciando = false;
             Detener = false;
-            xp = 0;
+            segundos = 0;
         }
         if (Iniciando)
         {
-            Contador.color = Color.green;
-            colorDigito = Color.green;
-            activoRojo = Color.black;
-            activoAmarillo = Color.black;
-            activoVerde = Color.green;
-            Primera = true;
-            Segunda = false;
-            Tercera = false;
-            Cuarta = false;
+            EncenderVerde();
+            PrimeraFase = true;
+            SegundaFase = false;
+            TerceraFase = false;
+            CuartaFase = false;
             Preventivas = false;
             Iniciando = false;
             Detener = false;
-            xp = 1;
+            segundos = 1;
         }
 
-        Contador.text = Mathf.Floor(xp) + "";
+        txtContador.text = Mathf.Floor(segundos) + "";
     }
 }

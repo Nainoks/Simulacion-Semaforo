@@ -63,6 +63,7 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.UI.DebugUIHandlerVector4
     - UnityEngine.Rendering.UI.UIFoldout
     Unity.RenderPipelines.Universal.Editor.dll:
+    - UnityEditor.Experimental.Rendering.Universal.Path2D.ScriptablePathInspector
     - UnityEditor.Rendering.Universal.UniversalProjectSettings
     Unity.RenderPipelines.Universal.Runtime.dll:
     - UnityEngine.Experimental.Rendering.Universal.Light2D
@@ -99,7 +100,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Toggle
     - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
-    Assets/Final.unity:
+    Assets/FinalAhoraSiFinalTeLoJuroPorVieguitoMaradona.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -1437,5 +1438,5 @@ ScriptsOnlyBuild:
     className: DiagnosticEventCollector
   platform: 19
   scenePathNames:
-  - Assets/Final.unity
-  playerPath: C:/Users/adolf/Desktop/Semaforo/Build/Proyecto Circuitos.exe
+  - Assets/FinalAhoraSiFinalTeLoJuroPorVieguitoMaradona.unity
+  playerPath: C:/Users/adolf/Desktop/Semaforo/Semaforo Final/Proyecto Circuitos.exe
